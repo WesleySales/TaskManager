@@ -25,9 +25,14 @@ public class Task {
     @Enumerated(EnumType.STRING)
     private TaskDifficulty dificulty ;
 
-    public Task(TaskDTO data){
+    @ManyToOne
+    @JoinColumn(name = "projectID")
+    private Project project;
+
+    public Task(TaskDTO data, Project project){
         this.title= data.title();
         this.description = data.description();
+        this.project = project;
         this.dateCreated = LocalDate.now();
         this.dateExpiration = data.dateExp();
         this.dificulty = data.difficulty();
