@@ -29,7 +29,7 @@ public class Task {
     @JoinColumn(name = "projectID")
     private Project project;
 
-    public Task(TaskDTO data, Project project){
+    public Task(TaskDTO data){
         this.title= data.title();
         this.description = data.description();
         this.project = project;

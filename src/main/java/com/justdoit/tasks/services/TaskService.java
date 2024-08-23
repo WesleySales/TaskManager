@@ -22,20 +22,9 @@ public class TaskService {
     private ProjectService projectService;
 
     public Task createTask (TaskDTO data){
-        try {
-            Project project = projectService.getById(data.projectID());
-            if (project == null) {
-                throw new RuntimeException("Projeto não encontrado");
-            }
-            Task newTask = new Task(data, project);
+            Task newTask = new Task(data);
             taskRepository.save(newTask);
             return newTask;
-
-        } catch (RuntimeException e) {
-            throw e;
-        } catch (Exception e) {
-            throw new RuntimeException("Erro ao criar a tarefa", e);
-        }
     }
 
     public Task updateTask (Long id,TaskDTO data){

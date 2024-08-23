@@ -8,7 +8,6 @@ import java.time.LocalDate;
 public record TaskDTO(
         String title,
         String description,
-        Long projectID,
         LocalDate dateExp,
         TaskDifficulty difficulty
 ) {
