@@ -1,6 +1,7 @@
 package com.justdoit.tasks.entities;
 
 import com.justdoit.tasks.DTOs.TaskDTO;
+import com.justdoit.tasks.User.User;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -26,10 +27,10 @@ public class Task {
     private TaskDifficulty dificulty ;
 
     @ManyToOne
-    @JoinColumn(name = "projectID")
+    @JoinColumn(name = "project_ID")
     private Project project;
 
-    public Task(TaskDTO data){
+    public Task(Project project,TaskDTO data){
         this.title= data.title();
         this.description = data.description();
         this.project = project;
@@ -38,47 +39,5 @@ public class Task {
         this.dificulty = data.difficulty();
     }
 
-    public Long getId() {
-        return id;
-    }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public LocalDate getDateCreated() {
-        return dateCreated;
-    }
-
-    public void setDateCreated(LocalDate dateCreated) {
-        this.dateCreated = dateCreated;
-    }
-
-    public LocalDate getDateExpiration() {
-        return dateExpiration;
-    }
-
-    public void setDateExpiration(LocalDate dateExpiration) {
-        this.dateExpiration = dateExpiration;
-    }
-
-    public TaskDifficulty getDificulty() {
-        return dificulty;
-    }
-
-    public void setDificulty(TaskDifficulty dificulty) {
-        this.dificulty = dificulty;
-    }
 }

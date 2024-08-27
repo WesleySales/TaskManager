@@ -21,8 +21,9 @@ public class TaskService {
     @Autowired
     private ProjectService projectService;
 
-    public Task createTask (TaskDTO data){
-            Task newTask = new Task(data);
+    public Task createTask (Long projectID,TaskDTO data){
+            Project project = projectRepository.getById(projectID);
+            Task newTask = new Task(project,data);
             taskRepository.save(newTask);
             return newTask;
     }
