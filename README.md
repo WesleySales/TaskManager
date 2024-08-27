@@ -43,10 +43,18 @@ O **Task Manager** é uma aplicação de gerenciamento de tarefas desenvolvida e
    mvn spring-boot:run
 
 4. Acesse a API através do Postman ou qualquer cliente REST:
-- Endpoint para criar tarefa: POST /api/tasks
-- Endpoint para visualizar todas as tarefas: GET /api/tasks
-- Endpoint para editar uma tarefa: PUT /api/tasks/{id}
-- Endpoint para excluir uma tarefa: DELETE /api/tasks/{id}
+
+ ENDPOINTS **TASKS**:
+- Criar tarefa: **POST** /projects/1/tasks
+- Visualizar todas as tarefas do projeto: **GET** /projects/{projectsId}/tasks
+- Editar uma tarefa: **PUT** /projects/{projectsId}/tasks/{id}
+- Endpoint para excluir uma tarefa: **DELETE** /projects/{projectsId}/tasks/{id} 
+
+ ENDPOINTS **PROJECTS**:
+- Criar tarefa: **POST** /projects
+- Visualizar todas as tarefas do projeto: **GET** /projects
+- Editar uma tarefa: **PUT** /projects/{id}
+- Endpoint para excluir uma tarefa: **DELETE** /projects/{id}
 
 ## Contribuição
 Contribuições são bem-vindas! Se você tiver alguma ideia ou sugestão para melhorar o projeto, fique à vontade para abrir uma issue ou enviar um *pull request*.
